@@ -84,16 +84,16 @@
         -->
     </main>
     <script src="https://kit.fontawesome.com/f4db4e846c.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
         $.getJSON("https://js.cexplorer.io/api-static/pool/pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg.json", function(data) { 
         $.each( data.data, function( i, val ) { 
                 a=new Array('tax_fix','pledge','stake');
                 if(a.includes(i))  val=Math.round(parseInt(val)/1000000);
                 if(i=='blocks_lifetime') val=parseInt(val) + parseInt(data.data.blocks_epoch);
-        
                 $('#pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_'+i).html(val).text();   
-        }); 
-                });
+                }); 
+            });
         </script>
 </body>
 <footer>
