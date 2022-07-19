@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CIEL Stake Pool</title>
+    <link rel="stylesheet" href="cmn/css/sanitize.css">
     <link rel="stylesheet" href="cmn/css/style.css">
     <style type="text/css">
         body{
@@ -10,39 +11,40 @@
             background-attachment: fixed;
         }
     </style>
-    <!--
-    <style>
-      * {
-            outline: 1px solid #ff0000;
-        }
-    </style>
-    -->
 </head>
 <header>
     
 </header>
 <body>
     <main>
-      <!--トップアイテム-->
-        <div class="topitem">
-           <h1 class="topitem_">CIEL Stake Pool</h1>
-           <p class="topitem__">農家の運営するプール</p>
-        </div>
-        <div class="maintext">
+        <!-- トップアイテム -->
+        <section class="topitem">
+            <h1 class="topitem_">CIEL Stake Pool</h1>
+            <p class="topitem__">農家の運営するプール</p>
+        </section>
+        <!-- Cexplorer.io -->
+        <section class="maintext">
+            <div class="poolabout">
+                Pool Name: <span id="pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_name"></span><br/>
+                Pool ID: <span id="pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_pool_id"></span><br> (<span id="pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_pool_id_hash"></span>)<br/>
+                Live Stake: <span id="pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_stake"></span> ADA<br/>
+                Costs: <span id="pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_tax_ratio"></span>% +  <span id="pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_tax_fix"></span> ADA<br/>
+                Blocks Lifetime: <span id="pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_blocks_lifetime"></span><br/>
+                Return (lifetime): <span id="pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_roa_lifetime"></span>%<br/>
+                Pledge: <span id="pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_pledge"></span> ADA<br/>
+                Delegators: <span id="pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_delegators"></span><br/>
+            </div>
+        </section>
+        <!-- メインコンテンツ -->
+        <section class="maintext">
             <h1>CIEL Stake Poolへようこそ</h1>
             <p>CIEL Stake Poolは第３世代のブロックチェーンである「Cardano」の分散型台帳を支えるステーキングプールです。お持ちのADA（エイダ）をステーキングすることで、当プールがブロックを生成した際にステーキング報酬を受け取ることができます。</p>
             <h1>これまでの歩み</h1>
             <p>当プールは、サステナビリティを目指す現役農家の Yoshiki が運営しております。<br>Cardanoは、アフリカをはじめとした新興国で「トレーサビリティ」に利用されています。<br>トレーサビリティとは、農産物を生産地から消費地までのルートや生産者情報を記憶し追跡可能にする技術です。この技術を利用することで、農産物が流通する過程での生産者への信頼と、消費地及び消費量の把握、新たな消費者の確保を容易にすることができます。農業と深い関わりのある次世代の技術に興味を持ち、学びを深めたいという思いで"CIEL Stake Pool"が立ち上がりました。
             </p>
-            <!--
-            <div class="box">
-               <p>ー寄付活動ー</p>
-                <p>CIEL Stake Poolでは、プール運営者に与えられる運営報酬の一部を非営利団体に寄付しております。</p>
-                <img src="cmn/img/2-1.jpeg">
-            </div>
-            -->
-        </div>
+        </section>
         <!--フレックスボックス・コンテナ-->
+        <!--
         <div class="container">
             <div class="item">
                <div>
@@ -79,9 +81,30 @@
                 <p>運営者に入る報酬の一部を慈善団体に寄付することで、Cardanoが地球の持続可能性に利用されるユースケースを作ります。</p>
             </div>
         </div>
+        -->
     </main>
+    <script src="https://kit.fontawesome.com/f4db4e846c.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><script>
+        $.getJSON("https://js.cexplorer.io/api-static/pool/pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg.json", function(data) { 
+        $.each( data.data, function( i, val ) { 
+                a=new Array('tax_fix','pledge','stake');
+                if(a.includes(i))  val=Math.round(parseInt(val)/1000000);
+                if(i=='blocks_lifetime') val=parseInt(val) + parseInt(data.data.blocks_epoch);
+        
+                $('#pool13qppafmw3vq5rl4ewmxv7zy84x3rshx9sdczs0zq40cxu0dqkrg_'+i).html(val).text();   
+        }); 
+                });
+        </script>
 </body>
 <footer>
+    <div class="sns">
+        <ul>
+            <li><a class="fa-brands fa-twitter" href="https://twitter.com/CIEL_Stake_Pool"></a></li>
+            <li><a class="fa-brands fa-telegram" href=""></a></li>
+            <li><a class="fa-brands fa-discord" href="https://discord.com/#8135"></a></li>
+            <li><a class="fa-brands fa-github" href="https://github.com/449sabu"></a></li>
+        </ul>
+    </div>
     <div>
         <p class="copy">&copy; 2022 CIEL StakePool</p>
     </div>
