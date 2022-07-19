@@ -1,10 +1,8 @@
-@import url(destyle.css);
-
 /*トップアイテム*/
 .topitem {
     text-align:center;
-    color: aliceblue;
-    padding: 350px 50px;
+    color: #fff;
+    padding: 15% 5%; 
 }
 .topitem_ {
     font-size: 70px;
@@ -15,7 +13,7 @@
 
 /*メインテキスト*/
 .maintext {
-    background-color: rgba(255, 255, 255, 0.562); 
+    background-color: #fff; 
     text-align:center;
     padding: 30px 30px 30px 30px; 
 }
@@ -42,8 +40,8 @@
 
 /*フレックスボックス・コンテナ*/
 .container {
-    max-width: ;
-    padding: ;
+    max-width: 0;
+
     margin: auto;
 }
 .item {
@@ -74,22 +72,40 @@
 .item__content {
     font-size: 25px;
     flex-basis: 60%;
-    padding: ;
 }
 /*フッター*/
 footer{
-    background-color: aliceblue;
-    padding: 30px
+    background-color: dimgray;
+    padding: 5px 300px;
 }
+/* SNS */
+ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 35%;
+    margin: 0%;
+  }
+li {
+    display: inline-block;
+    list-style-type: none;
+    font-size: 35px;
+}
+a {
+    color: azure;
+    text-decoration: none;
+  }
+/* コピーライト */
 .copy{
     font-size: 15px;
     text-align:center;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
-.footer_container {
-    display: flex;
-}
+
+
+
+
 /*レスポンシブ*/
 @media (max-width: 640px){
     /*トップアイテム*/
@@ -111,9 +127,30 @@ footer{
     }
     .maintext h1{
         font-size: 25px;
-        padding: 
+        padding: 5px;
+    }
     .maintext p{
         font-size: 15px;
         padding-top: 20px;
     }
+    /*フッター*/
+    footer{
+        background-color: dimgray;
+        padding: 5px 15px;
+    }
+    ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 40px;
+        margin: 0%;
+    }
+    li {
+        display: inline-block;
+        list-style-type: none;
+        font-size: 25px;
+    }
+    a {
+        color: azure;
+        text-decoration: none;
+      }
 }
